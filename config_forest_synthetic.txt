@@ -1,0 +1,19 @@
+expname = forest_synthetic
+basedir = /home/animesh/ucl/programming/projects/nerf
+datadir = /home/animesh/ucl/programming/3d-atom/projects/data/forest_synthetic_no_fog
+
+dataset_type = 3d-atom
+
+no_batching = True
+
+N_samples = 64
+N_importance = 128
+lindisp = False
+no_ndc = True
+factor = 4
+render_test = True
+
+use_viewdirs = True
+
+white_bkgd = False
+N_rand = 1024
