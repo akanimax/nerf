@@ -104,9 +104,12 @@ def render_rays(ray_batch,
           depth_map: [num_rays]. Estimated distance to object.
         """
 
+        def _shifted_softplus(x):
+            return tf.log(1 + tf.exp(x - 1))
+
         # Function for computing density from model prediction. This value is
         # strictly between [0, 1].
-        def raw2alpha(raw, dists, act_fn=tf.nn.relu):
+        def raw2alpha(raw, dists, act_fn=_shifted_softplus):
             return 1.0 - \
                    tf.exp(-act_fn(raw) * dists)
 
